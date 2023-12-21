@@ -1,73 +1,77 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+**Explanation and Readme for Implementing CI/CD for NestJS Application with TypeORM, PostgreSQL, and AWS**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### Continuous Integration/Continuous Deployment (CI/CD) Setup for NestJS
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+#### Objective:
+The goal is to set up an automated CI/CD pipeline for a NestJS application using AWS services, specifically AWS CodePipeline, AWS CodeBuild, Elastic Beanstalk, Docker, and PostgreSQL.
 
-## Description
+#### Steps:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. **Version Control Setup:**
+   - Ensure the NestJS application code is hosted on a version control system, such as Git (GitHub).
 
-## Installation
+2. **CI Pipeline:**
+   - Configure a CI service (GitHub Actions, AWS CodePipeline, Jenkins) to monitor the repository for changes.
+   - Set up CI/CD on AWS for NestJS projects using GitHub, AWS CodePipeline, AWS CodeBuild, and Elastic Beanstalk.
+   - Define build steps in the CI pipeline, including linting, running tests, and compiling the NestJS application.
 
-```bash
-$ npm install
-```
+3. **Containerization:**
+   - Utilize Docker to containerize the NestJS application.
+   - Write a `Dockerfile` to package the application with its dependencies.
 
-## Running the app
+4. **PostgreSQL Database Setup:**
+   - Create an AWS RDS PostgreSQL instance or use an existing one.
+   - Configure TypeORM in the NestJS application to connect to the PostgreSQL database.
 
-```bash
-# development
-$ npm run start
+5. **AWS Infrastructure:**
+   - Set up an AWS Elastic Container Registry (ECR) to store Docker images.
+   - Establish an AWS ECS (Elastic Container Service) cluster or AWS Fargate to deploy and run the Dockerized NestJS application.
 
-# watch mode
-$ npm run start:dev
+6. **Deployment Automation:**
+   - Automate the deployment process by integrating the CI pipeline with AWS services.
+   - Define deployment scripts or use tools like AWS CloudFormation or Terraform for infrastructure as code.
 
-# production mode
-$ npm run start:prod
-```
+7. **Environment Configuration:**
+   - Manage different environment configurations (development, staging, production) using environment variables or AWS Parameter Store/Secrets Manager.
 
-## Test
+8. **Monitoring and Logging:**
+   - Implement monitoring solutions like AWS CloudWatch for tracking application logs, metrics, and performance.
 
-```bash
-# unit tests
-$ npm run test
+9. **Security:**
+   - Ensure security measures such as IAM roles and permissions, encryption in transit and at rest, and secure database access.
 
-# e2e tests
-$ npm run test:e2e
+10. **Documentation:**
+    - Document the CI/CD process, configuration steps, and any necessary setup for future reference.
 
-# test coverage
-$ npm run test:cov
-```
+#### Expected Outcome:
+A fully automated CI/CD pipeline that seamlessly builds, tests, and deploys the NestJS application using TypeORM, PostgreSQL, and AWS services, ensuring scalability, reliability, and efficient development workflows.
 
-## Support
+### Additional Task: Implementing GET and POST APIs
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+#### 1. GET API:
+   - Create a GET endpoint using NestJS to retrieve data from the PostgreSQL database.
+   - Define appropriate routes and controllers to handle the GET request.
+   - Utilize TypeORM to query the PostgreSQL database and retrieve relevant data.
 
-## Stay in touch
+#### 2. POST API:
+   - Implement a POST endpoint that allows the insertion of data into the PostgreSQL database.
+   - Design routes and controllers to handle incoming POST requests.
+   - Validate and process incoming data, then use TypeORM to store it in the PostgreSQL database.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Expected Outcome:
+Two APIs integrated into the NestJS application: one for retrieving data (GET) and another for adding data (POST).
+- The GET endpoint should fetch data from the PostgreSQL database and return it in response to client requests.
+- The POST endpoint should accept data from clients, process and validate it, and then persist it in the PostgreSQL database.
 
-## License
+### How to Run:
+1. Clone the Git repository.
+2. Configure AWS services and set up environment variables.
+3. Set up PostgreSQL database and update TypeORM configuration.
+4. Run CI/CD pipeline for automatic deployment.
+5. Access the NestJS application's GET and POST APIs.
 
-Nest is [MIT licensed](LICENSE).
+### Note:
+- Ensure AWS credentials and permissions are set up correctly for CI/CD.
+- Refer to the documentation for detailed instructions on configuring, deploying, and managing the application.
+
+This README provides an overview of the CI/CD setup and additional tasks, guiding users on the necessary steps to run the NestJS application seamlessly.
