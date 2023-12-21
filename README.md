@@ -22,6 +22,12 @@ The goal is to set up an automated CI/CD pipeline for a NestJS application using
 4. **PostgreSQL Database Setup:**
    - Create an AWS RDS PostgreSQL instance or use an existing one.
    - Configure TypeORM in the NestJS application to connect to the PostgreSQL database.
+   -  type: 'postgres',
+   - host: Environment.AWS_RDS_POSTGRES_HOST,
+   - port: Environment.AWS_RDS_POSTGRES_PORT,
+   - username: Environment.AWS_RDS_POSTGRES_USER,
+   - password: token,
+   - database: Environment.AWS_RDS_POSTGRES_DATABASE,
 
 5. **AWS Infrastructure:**
    - Set up an AWS Elastic Container Registry (ECR) to store Docker images.
